@@ -21,6 +21,26 @@ public class SabjiController {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @GetMapping("/hello")
+    public ResponseEntity<?> getHello() {
+        try{
+            return new ResponseEntity<>("Hello", HttpStatus.OK);
+        }
+        catch(Exception e){
+            return new ResponseEntity<>("Error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/world")
+    public ResponseEntity<?> getWorld() {
+        try{
+            return new ResponseEntity<>("World", HttpStatus.OK);
+        }
+        catch(Exception e){
+            return new ResponseEntity<>("Error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping("/")
     public ResponseEntity<?> getSabjis() {
         try{

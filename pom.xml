@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -58,7 +58,6 @@
 	</dependencies>
 
 
-
 	<build>
 		<plugins>
 			<plugin>
@@ -69,7 +68,22 @@
 					<release>${java.version}</release>
 				</configuration>
 			</plugin>
+
+			<!-- ✅ Add this plugin to make the jar runnable -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.2.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
 
 </project>
