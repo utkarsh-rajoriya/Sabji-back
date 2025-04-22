@@ -58,32 +58,22 @@
 	</dependencies>
 
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version>
-				<configuration>
-					<release>${java.version}</release>
-				</configuration>
-			</plugin>
-
-			<!-- ✅ Add this plugin to make the jar runnable -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>3.2.5</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
-
+<build>
+  <plugins>
+    <!-- ✅ This builds an executable .jar -->
+    <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+      <version>3.2.5</version>
+      <executions>
+        <execution>
+          <goals>
+            <goal>repackage</goal> <!-- This creates a fat JAR with Main class -->
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
 
 </project>
